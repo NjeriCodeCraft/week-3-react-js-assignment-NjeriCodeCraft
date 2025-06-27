@@ -3,33 +3,40 @@ import { createContext, useContext, useEffect, useState } from "react"
 const ThemeContext = createContext()
 
 const ThemeProvider = ({ children }) => {
-  const [darkMode, setDarkMode] = useState(() => {
-    // Check localStorage first, then system preference, default to light
-    const savedTheme = localStorage.getItem("theme")
-    if (savedTheme) {
-      return savedTheme === "dark"
-    }
-    // Check system preference
-    return window.matchMedia("(prefers-color-scheme: dark)").matches
-  })
+  const [darkMode, setDarkMode] = useState(false)
+  const [mounted, setMounted] = useState(false)
 
   useEffect(() => {
-    // Apply theme immediately on mount
-    if (darkMode) {
-      document.documentElement.classList.add("dark")
-      localStorage.setItem("theme", "dark")
+    // Only access localStorage and window after component mounts
+    const savedTheme = localStorage.getItem("theme")
+    if (savedTheme) {
+      setDarkMode(savedTheme === "dark")
     } else {
-      document.documentElement.classList.remove("dark")
-      localStorage.setItem("theme", "light")
+      // Check system preference
+      setDarkMode(window.matchMedia("(prefers-color-scheme: dark)").matches)
     }
-  }, [darkMode])
+    setMounted(true)
+  }, [])
+
+  useEffect(() => {
+    // Apply theme only after mounting to prevent hydration issues
+    if (mounted) {
+      if (darkMode) {
+        document.documentElement.classList.add("dark")
+        localStorage.setItem("theme", "dark")
+      } else {
+        document.documentElement.classList.remove("dark")
+        localStorage.setItem("theme", "light")
+      }
+    }
+  }, [darkMode, mounted])
 
   const toggleTheme = () => {
     setDarkMode(prev => !prev)
   }
 
   return (
-    <ThemeContext.Provider value={{ darkMode, toggleTheme }}>
+    <ThemeContext.Provider value={{ darkMode, toggleTheme, mounted }}>
       {children}
     </ThemeContext.Provider>
   )
