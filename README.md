@@ -1,71 +1,220 @@
-[![Open in Visual Studio Code](https://classroom.github.com/assets/open-in-vscode-2e0aaae1b6195c2367325f4f02e2d04e9abb55f0b24a779b69b11b9e10269abc.svg)](https://classroom.github.com/online_ide?assignment_repo_id=19842985&assignment_repo_type=AssignmentRepo)
-# React.js and Tailwind CSS Assignment
+# React Task App 🌟
 
-This assignment focuses on building a responsive React application using JSX and Tailwind CSS, implementing component architecture, state management, hooks, and API integration.
+A modern, responsive React application for task management with API data fetching capabilities and dark/light theme support.
 
-## Assignment Overview
+## ✨ Features
 
-You will:
-1. Set up a React project with Vite and Tailwind CSS
-2. Create reusable UI components
-3. Implement state management using React hooks
-4. Integrate with external APIs
-5. Style your application using Tailwind CSS
+- **📝 Task Management**: Create, complete, and delete tasks with local storage persistence
+- **🌐 API Integration**: Fetch and display posts from JSONPlaceholder API with search and pagination
+- **🎨 Theme Toggle**: Switch between light and dark modes with system preference detection
+- **📱 Responsive Design**: Mobile-friendly interface built with Tailwind CSS
+- **⚡ Fast Performance**: Built with Vite for lightning-fast development and builds
+- **🔄 Real-time Updates**: Instant UI updates with React hooks and context
 
-## Getting Started
+## 🚀 Live Demo
 
-1. Accept the GitHub Classroom assignment invitation
-2. Clone your personal repository that was created by GitHub Classroom
-3. Install dependencies:
-   ```
-   npm install
-   ```
-4. Start the development server:
-   ```
-   npm run dev
-   ```
+[Add your live demo link here]
 
-## Files Included
+## 🛠️ Tech Stack
 
-- `Week3-Assignment.md`: Detailed assignment instructions
-- Starter files for your React application:
-  - Basic project structure
-  - Pre-configured Tailwind CSS
-  - Sample component templates
+- **Frontend Framework**: React 19.1.0
+- **Build Tool**: Vite 7.0.0
+- **Styling**: Tailwind CSS 4.1.11
+- **Routing**: React Router DOM 7.6.3
+- **State Management**: React Context API
+- **Package Manager**: npm
 
-## Requirements
+## 📋 Prerequisites
 
-- Node.js (v18 or higher)
-- npm or yarn
-- Modern web browser
-- Code editor (VS Code recommended)
+Before you begin, ensure you have the following installed:
+- **Node.js** (version 18 or higher)
+- **npm** (comes with Node.js)
 
-## Project Structure
-
-```
-src/
-├── components/       # Reusable UI components
-├── pages/           # Page components
-├── hooks/           # Custom React hooks
-├── context/         # React context providers
-├── api/             # API integration functions
-├── utils/           # Utility functions
-└── App.jsx          # Main application component
+You can check your versions with:
+```bash
+node --version
+npm --version
 ```
 
-## Submission
+## 🏗️ Installation & Setup
 
-Your work will be automatically submitted when you push to your GitHub Classroom repository. Make sure to:
+### 1. Clone the Repository
 
-1. Complete all required components and features
-2. Implement proper state management with hooks
-3. Integrate with at least one external API
-4. Style your application with Tailwind CSS
-5. Deploy your application and add the URL to your README.md
+```bash
+git clone https://github.com/yourusername/react-task-app.git
+cd react-task-app
+```
 
-## Resources
+### 2. Install Dependencies
 
-- [React Documentation](https://react.dev/)
-- [Tailwind CSS Documentation](https://tailwindcss.com/docs)
-- [Vite Documentation](https://vitejs.dev/guide/)
-- [React Router Documentation](https://reactrouter.com/) 
+```bash
+npm install
+```
+
+### 3. Start Development Server
+
+```bash
+npm run dev
+```
+
+The application will be available at `http://localhost:5173`
+
+### 4. Build for Production
+
+```bash
+npm run build
+```
+
+### 5. Preview Production Build
+
+```bash
+npm run preview
+```
+
+## 📁 Project Structure
+
+```
+react-task-app/
+├── public/
+│   └── vite.svg
+├── src/
+│   ├── components/
+│   │   ├── Button.jsx          # Reusable button component
+│   │   ├── Card.jsx            # Card layout component
+│   │   ├── Footer.jsx          # Footer component
+│   │   ├── Layout.jsx          # Main layout wrapper
+│   │   └── Navbar.jsx          # Navigation bar with theme toggle
+│   ├── context/
+│   │   └── ThemeContext.jsx    # Dark/light theme context
+│   ├── pages/
+│   │   ├── Home.jsx            # Home page with app overview
+│   │   ├── Tasks.jsx           # Task management page
+│   │   └── ApiData.jsx         # API data display page
+│   ├── utils/
+│   │   └── useLocalStorage.js  # Custom hook for localStorage
+│   ├── App.jsx                 # Main app component with routing
+│   ├── main.jsx                # App entry point
+│   └── index.css               # Global styles and Tailwind imports
+├── index.html                  # HTML template
+├── package.json                # Dependencies and scripts
+├── tailwind.config.js          # Tailwind CSS configuration
+├── vite.config.js              # Vite configuration
+└── README.md                   # This file
+```
+
+## 🎯 Features in Detail
+
+### Task Management
+- **Add Tasks**: Type in the input field and press Enter or click "Add"
+- **Complete Tasks**: Click the checkmark (✔) to mark tasks as complete
+- **Delete Tasks**: Click the X (✖) to remove tasks
+- **Filter Tasks**: View All, Active, or Completed tasks
+- **Persistent Storage**: Tasks are saved in browser localStorage
+
+### API Data Display
+- **Fetch Posts**: Automatically loads posts from JSONPlaceholder API
+- **Search Functionality**: Filter posts by title
+- **Pagination**: Navigate through posts with Previous/Next buttons
+- **Responsive Grid**: Posts display in a responsive grid layout
+
+### Theme System
+- **Dark/Light Toggle**: Click the moon/sun button in the navbar
+- **System Preference**: Automatically detects your system theme preference
+- **Persistent Theme**: Your theme choice is remembered across sessions
+- **Smooth Transitions**: Theme changes with smooth CSS transitions
+
+## 🎨 Customization
+
+### Adding New Pages
+1. Create a new component in `src/pages/`
+2. Add the route in `src/App.jsx`
+3. Add navigation link in `src/components/Navbar.jsx`
+
+### Styling
+The app uses Tailwind CSS for styling. You can:
+- Modify `tailwind.config.js` for custom theme settings
+- Add custom CSS in `src/index.css`
+- Use Tailwind utility classes in components
+
+### Theme Customization
+Edit `src/context/ThemeContext.jsx` to:
+- Change default theme
+- Add more theme options
+- Modify theme persistence logic
+
+## 🐛 Troubleshooting
+
+### Common Issues
+
+**White blank screen:**
+- Check browser console for JavaScript errors
+- Ensure all dependencies are installed: `npm install`
+- Clear browser cache and localStorage
+
+**Theme not working:**
+- Check if Tailwind CSS is properly configured
+- Verify ThemeProvider is wrapping the app in `main.jsx`
+- Clear localStorage to reset theme preferences
+
+**API data not loading:**
+- Check internet connection
+- Verify the API endpoint is accessible
+- Check browser console for network errors
+
+### Development Issues
+
+**Port already in use:**
+```bash
+# Kill process on port 5173
+npx kill-port 5173
+# Or use a different port
+npm run dev -- --port 3000
+```
+
+**Dependencies issues:**
+```bash
+# Clear npm cache
+npm cache clean --force
+# Delete node_modules and reinstall
+rm -rf node_modules package-lock.json
+npm install
+```
+
+## 📝 Available Scripts
+
+- `npm run dev` - Start development server
+- `npm run build` - Build for production
+- `npm run preview` - Preview production build
+- `npm run lint` - Run ESLint
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create a feature branch: `git checkout -b feature-name`
+3. Make your changes
+4. Commit your changes: `git commit -m 'Add feature'`
+5. Push to the branch: `git push origin feature-name`
+6. Submit a pull request
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 🙏 Acknowledgments
+
+- [React](https://reactjs.org/) - Frontend framework
+- [Vite](https://vitejs.dev/) - Build tool
+- [Tailwind CSS](https://tailwindcss.com/) - CSS framework
+- [React Router](https://reactrouter.com/) - Routing
+- [JSONPlaceholder](https://jsonplaceholder.typicode.com/) - API for testing
+
+## 📞 Support
+
+If you encounter any issues or have questions:
+- Create an issue in the GitHub repository
+- Check the troubleshooting section above
+- Review the browser console for error messages
+
+---
+
+**Made with ❤️ using React and Vite**
